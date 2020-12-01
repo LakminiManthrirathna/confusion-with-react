@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Main from './components/MainComponent';
-import { DISHES } from './shared/dishes';
+import {DISHES} from './shared/dishes';
+import {BrowserRouter} from 'react-router-dom';
 
 function App() {
-    const [dishes, setDishes]=useState(DISHES);
+    const [dishes, setDishes] = useState(DISHES);
     return (
-        <div className="App">
-            <Main />
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Main/>
+            </div>
+        </BrowserRouter>
     );
 }
 
