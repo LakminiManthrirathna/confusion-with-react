@@ -26,7 +26,7 @@ function RenderDish({dish}) {
     if (dish != null)
         return (
             <div className="row">
-                <div className="col-md-7 ">
+                <div className="col-md-5 ">
                     <Card className="cardStyle2">
                         <CardImg top src={dish.image} alt={dish.name}/>
                         <CardBody>
@@ -51,7 +51,6 @@ const DishDetail = (props) => {
         <div className="container">
             <div className="row">
                 <Breadcrumb>
-
                     <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
                     <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
                 </Breadcrumb>
