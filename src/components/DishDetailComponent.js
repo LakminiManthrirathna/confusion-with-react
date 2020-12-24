@@ -1,24 +1,32 @@
 import React from 'react';
 import {
     Card, CardImg, CardImgOverlay, CardText, CardBody,
-    CardTitle,Breadcrumb, BreadcrumbItem
+    CardTitle, Breadcrumb, BreadcrumbItem
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import Cform from './CommentFormComponent';
 
 function RenderComments({comments}) {
     if (comments != null) {
-        return comments.map(comment => {
-                return (<ul className="list-unstyled">
-                    <li>
-                        <div className="mb-2 text-left">
-                            <p>{comment.comment}</p>
-                            <p>-- {comment.author}, {comment.date} </p>
+        return (
+            comments.map(comment => {
+                    return (
+                        <div>
+                            <ul className="list-unstyled">
+                                <li>
+                                    <div className="mb-2 text-left">
+                                        <p>{comment.comment}</p>
+                                        <p>-- {comment.author}, {comment.date} </p>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </li>
-                </ul>)
-            }
+                    )
+                }
+            )
         )
-    } else
+    }
+    else
         return (<div></div>)
 }
 
@@ -56,17 +64,19 @@ const DishDetail = (props) => {
                 </Breadcrumb>
                 <div className="col-12">
                     <h3>{props.dish.name}</h3>
-                    <hr />
+                    <hr/>
                 </div>
             </div>
             <div className="row">
                 <div className="col-12 col-md-5 m-1">
-                    <RenderDish dish={props.dish} />
+                    <RenderDish dish={props.dish}/>
                 </div>
                 <div className="col-12 col-md-5 m-1">
-                    <RenderComments comments={props.comments} />
+                    <RenderComments comments={props.comments}/>
+                    <Cform/>
                 </div>
             </div>
+
         </div>
     );
 }
